@@ -20,11 +20,11 @@ def generate_question() -> tuple[int, str, int, int]:
     elif operator == "*":
         answer = left * right
     else:
-        answer = left // right
-        if left % right != 0:
-            left = right * answer + left % right
-        right = answer
-        answer = left // right
+        divisor = random.randint(10, 99)
+        quotient = random.randint(10, 99)
+        answer = quotient
+        left = divisor * quotient
+        right = divisor
 
     return left, operator, right, answer
 
@@ -35,13 +35,24 @@ def run_quiz() -> None:
     left, operator, right, answer = generate_question()
     print(f"{left} {operator} {right} = ?")
 
-    user_answer = input("答えを入力してください: ")
-    elapsed = int(time.monotonic() - start)
+    while True:
+        try:
+            user_answer = input("答えを入力してください: ")
+            if user_answer == "":
+                raise ValueError("入力が空です")
+            value = int(user_answer)
+        except (ValueError, TypeError):
+            print("入力が不正です。整数を入力してください。")
+            continue
 
-    if int(user_answer) == answer:
-        print(f"正解です! 最初の回答までの経過時間: {elapsed}秒")
-    else:
-        print(f"不正解です。正解は {answer} でした。")
+        elapsed = int(time.monotonic() - start)
+        if value == answer:
+            print(f"正解です! 最初の回答までの経過時間: {elapsed}秒")
+            return
+
+        print(f"不正解です。もう一度入力してください。")
+        # 失敗した場合も引き続き問題を再入力させる
+        print(f"{left} {operator} {right} = ?")
 
 
 if __name__ == "__main__":
