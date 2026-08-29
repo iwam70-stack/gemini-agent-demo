@@ -2,18 +2,17 @@
 
 ## 現在の状態
 
-- `src/` にスクリプトを配置済み
-- `test/` を作成し、動作確認用のユニットテストを追加済み
-- 設計メモ、要件、決定事項の記録を `docs/` 配下に整理済み
+- `design.md` の指示に基づくクイズゲームを実装済み
+- `src/quiz_game.py` と `test/test_quiz_game.py` を追加済み
+- `docs/` 配下の進捗・判断・要件記録を更新中
 
 ## 完了した作業
 
 - `src/file_list.py` の実装
-- `docs/design.md` の更新
-- `docs/requirements.md` の作成
-- `docs/decisions.md` の作成
-- `src/` への移動と `test/` フォルダの準備
-- ユニットテストの実行と確認
+- `src/quiz_game.py` の実装
+- `test/test_quiz_game.py` の追加
+- `docs/design.md` の意図を反映した実装確認
+- `docs/decisions.md` への判断追加
 
 ## 作業中
 
@@ -26,14 +25,14 @@
 ## テスト状況
 
 - 実行したテスト: `python -m unittest discover -s test -q`
-- 結果: 成功（2 tests, OK）
+- 結果: 成功（4 tests, OK）
 
 ## 次に行う作業
 
-1. 最終確認を行う
+1. 実装内容の最終確認
 2. git add / commit / push を実施する
 
 ## 注意事項
 
-- `src/file_list.py` の移動に合わせて README 実行例を更新済み
-- `AGENTS.md` の指示どおり、進捗と設計判断をドキュメントに残した
+- `design.md` は固定の指示書として扱い、内容変更は原則禁止
+- 実際の変更履歴は `docs/decisions.md` に記録する
